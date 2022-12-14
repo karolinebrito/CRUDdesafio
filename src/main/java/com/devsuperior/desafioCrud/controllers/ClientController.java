@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +35,9 @@ public class ClientController {
 
 	@GetMapping
 	@ResponseBody
-	public List<ClientDto> findAll() {
-		List<Client> clients = clientService.findAll();
-		return clients.stream().map(this::convertToDto).collect(Collectors.toList());
+	public Page<ClientDto> findAll(Pageable pageable) {
+		Page<Client> clients = clientService.findAll(pageable);
+		return clients.map(this::convertToDto);
 	}
 
 	private ClientDto convertToDto(Client client) {
