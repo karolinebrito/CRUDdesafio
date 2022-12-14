@@ -8,8 +8,7 @@ INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Otavio',
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Juliana', '36925645745', 11000.00, '1968-09-02', 2);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Fatima', '75335715995', 9000.00, '1967-02-03', 0);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Vanessa', '14725896301', 8000.00, '1982-10-01', 0);
-INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Branca', '54122825627', 7000.00, '1983-13-01', 0);
-INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Tereza', '78985296327', 5000.00, '1965-23-03', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Tereza', '78985296327', 5000.00, '1965-12-03', 3);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Tais', '62788512596', 3000.00, '1975-03-02', 0);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Fernanda', '22255578941', 2000.00, '1955-12-01', 10);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Lucas', '15945785465', 1500.00, '1998-03-21', 3);
@@ -20,6 +19,7 @@ INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Ravi', '
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Wandinha', '78612436927', 10000.00, '2020-01-04', 0);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Alice', '12458996321', 12000.00, '2021-02-14', 0);
 INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Larissa', '00078503202', 9000.00, '1965-06-06', 0);
+
 
 
 
