@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.devsuperior.desafioCrud.entities.Client;
 import com.devsuperior.desafioCrud.repositories.ClientRepository;
 
@@ -27,6 +26,11 @@ public class ClientService {
 	
 	@Transactional
 	public Client insert(Client client) {
+		return repository.save(client);
+	}
+	
+	@Transactional
+	public Client update(Client client) {
 		return repository.save(client);
 	}
 	

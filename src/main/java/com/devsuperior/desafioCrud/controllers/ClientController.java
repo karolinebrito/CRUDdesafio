@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,9 +51,17 @@ public class ClientController {
 	@ResponseBody
     public ResponseEntity<ClientDto> insert(@RequestBody ClientDto clientDto) {
 		Client client = convertToEntity(clientDto);
+		Client clientCreated = clientService.insert(client);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		.buildAndExpand(convertToDto(clientService.insert(client)).getId()).toUri();
-		return ResponseEntity.created(uri).body(convertToDto(clientService.insert(client)));
+				.buildAndExpand(convertToDto(clientCreated).getId()).toUri();
+		return ResponseEntity.created(uri).body(convertToDto(clientCreated));
+	}
+	
+	@PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Client> update(@PathVariable("id") Long id, @RequestBody ClientDto clientDto) {
+		Client client = convertToEntity(clientDto);
+		return ResponseEntity.ok(clientService.update(client));
 	}
 	
 	private ClientDto convertToDto(Client client) {
