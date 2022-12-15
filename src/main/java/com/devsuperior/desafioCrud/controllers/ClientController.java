@@ -60,9 +60,9 @@ public class ClientController {
 	
 	@PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<Client> update(@PathVariable("id") Long id, @RequestBody ClientDto clientDto) {
+	public ResponseEntity<ClientDto> update(@PathVariable("id") Long id, @RequestBody ClientDto clientDto) {
 		Client client = convertToEntity(clientDto);
-		return ResponseEntity.ok(clientService.update(client));
+		return ResponseEntity.ok(convertToDto(clientService.update(id, client)));
 	}
 	
 	@DeleteMapping(value = "/{id}")

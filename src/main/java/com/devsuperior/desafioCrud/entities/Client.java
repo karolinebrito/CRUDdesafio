@@ -87,4 +87,11 @@ public class Client {
 	public void setChildren(Integer children) {
 		this.children = children;
 	}
+
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", name=" + name + ", cpf=" + cpf + ", income=" + income + ", birthDate="
+				+ birthDate + ", children=" + children + "]";
+	}
+	
 }
