@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,6 +63,13 @@ public class ClientController {
 	public ResponseEntity<Client> update(@PathVariable("id") Long id, @RequestBody ClientDto clientDto) {
 		Client client = convertToEntity(clientDto);
 		return ResponseEntity.ok(clientService.update(client));
+	}
+	
+	@DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+		clientService.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 	
 	private ClientDto convertToDto(Client client) {
