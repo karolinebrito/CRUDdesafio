@@ -24,6 +24,8 @@ import com.devsuperior.desafioCrud.dto.ClientDto;
 import com.devsuperior.desafioCrud.entities.Client;
 import com.devsuperior.desafioCrud.services.ClientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/clients")
 public class ClientController {
@@ -50,7 +52,7 @@ public class ClientController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-    public ResponseEntity<ClientDto> insert(@RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> insert(@Valid @RequestBody ClientDto clientDto) {
 		Client client = convertToEntity(clientDto);
 		Client clientCreated = clientService.insert(client);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -60,7 +62,7 @@ public class ClientController {
 	
 	@PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<ClientDto> update(@PathVariable("id") Long id, @RequestBody ClientDto clientDto) {
+	public ResponseEntity<ClientDto> update(@PathVariable("id") Long id, @Valid @RequestBody ClientDto clientDto) {
 		Client client = convertToEntity(clientDto);
 		return ResponseEntity.ok(convertToDto(clientService.update(id, client)));
 	}

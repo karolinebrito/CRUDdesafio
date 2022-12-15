@@ -2,6 +2,10 @@ package com.devsuperior.desafioCrud.dto;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
+
 public class ClientDto {
 	private Long id;	
 	private String name;	
@@ -30,6 +34,7 @@ public class ClientDto {
 		this.id = id;
 	}
 
+	@NotBlank(message = "Campo requerido")
 	public String getName() {
 		return name;
 	}
@@ -53,7 +58,8 @@ public class ClientDto {
 	public void setIncome(Double income) {
 		this.income = income;
 	}
-
+	
+	@PastOrPresent
 	public LocalDate getBirthDate() {
 		return birthDate;
 	}
